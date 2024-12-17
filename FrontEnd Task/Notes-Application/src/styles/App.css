@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.notes-list {
+  flex: 1;
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.note-editor {
+  flex: 2;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.editor {
+  min-height: 300px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column; 
+  }
+
+  .notes-list {
+    max-height: 400px; 
+    margin-bottom: 20px;
+  }
+
+  .note-editor {
+    padding: 15px;
+  }
+
+  .toolbar {
+    gap: 5px; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .toolbar button {
+    flex: 1; 
+    padding: 10px; 
+    font-size: 0.9rem;
+  }
+
+  .editor {
+    min-height: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .notes-list {
+    max-height: 300px;
+  }
+
+  .toolbar button {
+    padding: 8px; /* Smaller touch areas for mobile */
+    font-size: 0.8rem;
+  }
+
+  .editor {
+    min-height: 150px;
+  }
+}

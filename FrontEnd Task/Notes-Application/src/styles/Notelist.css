@@ -1,0 +1,164 @@
+
+.notes-list {
+  width: 35%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  overflow-y: auto;
+  max-height: 500px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease, max-height 0.3s ease;
+}
+
+.note {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.note.pinned {
+  border-left: 4px solid #6200ea;
+}
+
+.note h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: #333;
+}
+
+.note button {
+  margin-right: 5px;
+  font-size: 0.8rem;
+}
+
+.note-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.note-view-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content p {
+  white-space: pre-wrap; 
+}
+
+.modal-content button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background: #4500b3;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .notes-list {
+    width: 100%;
+    margin-bottom: 20px;
+    max-height: 400px; 
+  }
+
+  .note h3 {
+    font-size: 0.9rem; 
+  }
+
+  .note-buttons {
+    gap: 5px; 
+  }
+
+  .modal-content {
+    max-width: 90%; 
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .notes-list {
+    width: 100%;
+    padding: 10px;
+    max-height: 350px;
+  }
+
+  .note {
+    padding: 8px;
+  }
+
+  .note h3 {
+    font-size: 0.85rem; 
+  }
+
+  .note-buttons {
+    flex-wrap: wrap; 
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .notes-list {
+    max-height: 300px;
+  }
+
+  .note-buttons {
+    flex-direction: column; 
+    gap: 5px;
+  }
+
+  .note h3 {
+    font-size: 0.8rem; 
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .modal-content button {
+    font-size: 0.85rem; 
+    padding: 8px 10px;
+  }
+}

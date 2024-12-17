@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "fabe346f-b523-4db1-8d8c-8109b52c4a62",
+		"name": "Quiz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33413814"
+	},
+	"item": [
+		{
+			"name": "Generate Quiz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"grade\": 8,\r\n    \"num_questions\": 4,\r\n    \"level\": \"easy\",\r\n    \"subject\": \"maths\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/quiz/gen",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quiz",
+						"gen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Quiz",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/quiz/{{quiz_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quiz",
+						"{{quiz_id}}"
+					]
+				},
+				"description": "### GET /quiz/{{quiz_id}}\n\nThis endpoint retrieves the details of a specific quiz identified by the `quiz_id`.\n\n#### Request\n\nNo request body parameters are required for this endpoint.\n\n- `quiz_id` (path parameter): The unique identifier of the quiz.\n    \n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n  \"_id\": \"string\",\n  \"grade\": 0,\n  \"num_questions\": 0,\n  \"level\": \"string\",\n  \"subject\": \"string\",\n  \"quiz\": [\n    {\n      \"question\": \"string\",\n      \"options\": [\"string\"],\n      \"_id\": \"string\"\n    }\n  ],\n  \"__v\": 0\n}\n\n ```\n\n- `_id`: The unique identifier of the quiz.\n- `grade`: The grade level of the quiz.\n- `num_questions`: The number of questions in the quiz.\n- `level`: The difficulty level of the quiz.\n- `subject`: The subject of the quiz.\n- `quiz`: An array of objects containing details of each question in the quiz.\n    - `question`: The text of the question.\n    - `options`: An array of strings representing the options for the question.\n    - `_id`: The unique identifier of the question."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hints",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/quiz/{{quiz_id}}/hints",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quiz",
+						"{{quiz_id}}",
+						"hints"
+					]
+				},
+				"description": "\nThe endpoint retrieves hints for a specific quiz based on the provided quiz ID.\n\nThe response for this request can be documented as a JSON schema:\n\n```json\n[\n    {\n        \"question\": \"string\",\n        \"hint\": \"string\"\n    }\n]\n```\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Score",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"66eefc401ba11aab17d23166\",\r\n    \"answers\": [\r\n        1,\r\n        1,\r\n        1,\r\n        1\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/quiz/{{quiz_id}}/score",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quiz",
+						"{{quiz_id}}",
+						"score"
+					]
+				},
+				"description": "### POST /quiz/{{quiz_id}}/score\n\nThis endpoint is used to submit a user's answers for a specific quiz and retrieve the score.\n\n#### Request\n\nThe request should be sent as an HTTP POST to the specified URL with the following JSON payload in the request body:\n\n- `user_id` (string, required): The ID of the user submitting the answers.\n- `answers` (array, required): An array of user's answers.\n    \n\nExample:\n\n``` json\n{\n    \"user_id\": \"user123\",\n    \"answers\": [0, 1, 2, 3]\n}\n\n ```\n\n#### Response\n\nUpon successful execution, the endpoint returns a JSON object with the following schema:\n\n``` json\n{\n    \"score\": 0\n}\n\n ```\n\n- `score` (number): The score obtained by the user for the quiz."
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"john\",\r\n    \"password\": \"jane\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"john\",\r\n    \"password\": \"jane\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Quizzes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parse the response body as JSON\r",
+							"let responseData = pm.response.json();\r",
+							"\r",
+							"// Extract the _id of the first object in the array\r",
+							"let quizId = responseData[0]._id;\r",
+							"\r",
+							"// Set a Postman variable named 'quiz_id' with the extracted ID\r",
+							"// pm.environment.set(\"q_id\", quizId);\r",
+							"pm.collectionVariables.set(\"q_id\", quizId);\r",
+							"\r",
+							"// Log the quiz_id to the Postman console for confirmation\r",
+							"console.log(\"Quiz ID:\", quizId);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/quiz/find?subject=maths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quiz",
+						"find"
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "maths"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Score",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"completedDate\": \"2024-09-21\",\r\n    \"score\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/scores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"scores"
+					]
+				},
+				"description": "# Auth Scores\n\nThis endpoint retrieves scores for authenticated users.\n\n## Request\n\n### Request Body\n\n- Raw JSON\n    - `completedDate` (string): The date when the quiz was completed.\n    - `score` (number): The score achieved in the quiz.\n\n## Response\n\nThe response is a JSON object with the following schema:\n\n``` json\n{\n    \"scores\": [\n        {\n            \"_id\": \"\",\n            \"quiz_id\": \"\",\n            \"user_id\": \"\",\n            \"score\": 0,\n            \"date\": \"\",\n            \"__v\": 0\n        }\n    ],\n    \"query\": {\n        \"user_id\": \"\",\n        \"score\": 0,\n        \"date\": {\n            \"$gte\": \"\",\n            \"$lt\": \"\"\n        }\n    }\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Score by Date",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"start\": \"2024-04-04\",\r\n    \"end\": \"2024-09-21\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/scores/date",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"scores",
+						"date"
+					]
+				},
+				"description": "# Auth Scores by Date\n\nThis endpoint retrieves scores based on the specified date range.\n\n## Request\n\n- Method: GET\n- URL: `http://localhost:3000/auth/scores/date`\n    \n\n### Request Body\n\n- Raw (application/json)\n    \n    ``` json\n    {\n        \"start\": \"\",\n        \"end\": \"\"\n    }\n    \n     ```\n    \n\n## Response\n\n- Status: 200\n- Content-Type: application/json\n    \n\n### Response Body\n\n``` json\n{\n    \"scores\": [\n        {\n            \"_id\": \"\",\n            \"quiz_id\": \"\",\n            \"user_id\": \"\",\n            \"score\": 0,\n            \"date\": \"\",\n            \"__v\": 0\n        }\n    ]\n}\n\n ```"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "quiz_id",
+			"value": "66ef091328bffe4ab4c0ad90"
+		},
+		{
+			"key": "q_id",
+			"value": ""
+		}
+	]
+}

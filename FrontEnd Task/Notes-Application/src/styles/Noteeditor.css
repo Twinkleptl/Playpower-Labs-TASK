@@ -1,0 +1,101 @@
+.note-editor {
+  max-width: 100%; 
+  overflow-wrap: break-word; 
+  word-wrap: break-word;
+  white-space: normal; 
+  padding: 15px;
+  box-sizing: border-box; 
+}
+
+.highlighted-content {
+  max-width: 100%;
+  max-height: 400px; 
+  overflow: auto;
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  white-space: pre-wrap;
+  word-break: break-all; 
+  hyphens: auto; 
+  border: 1px solid #ccc;
+  padding: 70px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.preview {
+  max-width: 100%;
+  overflow-x: auto; 
+}
+
+.preview h3 {
+  margin-bottom: 10px;
+}
+
+.rich-text-editor {
+  max-width: 100%;
+  height: 200px; 
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+
+.highlighted-term {
+  background-color: yellow; 
+  cursor: pointer; 
+  position: relative;
+}
+
+.highlighted-term:hover::after {
+  content: attr(data-tooltip); 
+  position: absolute;
+  bottom: 120%; 
+  transform: translateX(-50%);
+  background-color: #333; 
+  color: #fff; 
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  white-space: normal;
+  overflow: visible;
+  width: 200px;
+  font-size: 12px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.highlighted-term::after {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out;
+}
+
+
+

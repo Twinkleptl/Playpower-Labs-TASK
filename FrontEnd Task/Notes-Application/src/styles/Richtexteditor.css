@@ -1,0 +1,87 @@
+.editor-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .toolbar button {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    background: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .toolbar button:hover {
+    background: #4500a3;
+  }
+  
+  .editor {
+    min-height: 150px;
+    padding: 15px;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .editor:focus {
+    background: #fefefe;
+  }
+
+  button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    touch-action: manipulation; 
+  }
+  
+  button:active {
+    background: #e0e0e0;
+  }
+
+  .toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .toolbar-button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toolbar-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .editor {
+    min-height: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
